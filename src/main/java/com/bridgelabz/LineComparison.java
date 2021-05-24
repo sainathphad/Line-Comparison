@@ -19,8 +19,8 @@ public class LineComparison {
         System.out.println("Length of Line2 : " + lengthOfLine2);
 
         //EQUAL CHECK
-        boolean checkLength = lengthOfLine1.equals(lengthOfLine2); //returns true or false
-        System.out.println("Lines are equal: " + checkLength);
+        boolean equalCheck = lengthOfLine1.equals(lengthOfLine2); //returns true or false
+        System.out.println("Lines are equal: " + equalCheck);
 
         //COMPARE LINES
         int compareLine = lengthOfLine1.compareTo(lengthOfLine2);
