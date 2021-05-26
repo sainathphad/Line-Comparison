@@ -1,29 +1,51 @@
 package com.bridgelabz;
 
-public class LineComparison {
 
-    public static double lengthCalculation( int x1, int x2 , int y1, int y2 ) {
-        return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+import java.util.Scanner;
+
+public class LineComparison {
+    //VARIABLES
+    int x1, x2, y1, y2;
+    Double lengthOfLine;
+    Double line1, line2;
+
+    public void coordinates() {
+
+        System.out.println("Enter Coordinate Values: x1, y1, x2, y2");
+
+        Scanner sc = new Scanner(System.in);
+
+        x1 = sc.nextInt();
+        y1 = sc.nextInt();
+        x2 = sc.nextInt();
+        y2 = sc.nextInt();
+
+    }
+    public void lengthCalculation() {
+        lengthOfLine = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     }
 
-    public static void CompareLine() {
-        //VARIABLES
-        Double lengthOfLine1;
-        Double lengthOfLine2;
+    public void compareUsingEqual() {
 
         //LENGTH COMPUTATION
-        lengthOfLine1 = lengthCalculation(2,5,2,5);
-        lengthOfLine2 = lengthCalculation(1,3,1,3);
+        coordinates();
+        lengthCalculation();
 
-        System.out.println("Length of line1 : " + lengthOfLine1);
-        System.out.println("Length of Line2 : " + lengthOfLine2);
+        line1 = lengthOfLine;
+        System.out.println("Length of line1 : " + line1);
+
+        coordinates();
+        lengthCalculation();
+        line2 = lengthOfLine;
+        System.out.println("Length of Line2 : " + line2);
 
         //EQUAL CHECK
-        boolean equalCheck = lengthOfLine1.equals(lengthOfLine2); //returns true or false
+        boolean equalCheck = line1.equals(line2); //returns true or false
         System.out.println("Lines are equal: " + equalCheck);
-
+    }
+    public void compareUsingCompareTo() {
         //COMPARE LINES
-        int compareLine = lengthOfLine1.compareTo(lengthOfLine2);
+        int compareLine = line1.compareTo(line2);
         switch (compareLine) {
             case 0:
                 System.out.println("Lines are equal");
@@ -39,9 +61,8 @@ public class LineComparison {
 
     public static void main(String[] args) {
 
-            System.out.println("Welcome To Line Comparison Computation Program");
-            CompareLine();
-        }
-
-
+        LineComparison obj = new LineComparison();
+        obj.compareUsingEqual();
+        obj.compareUsingCompareTo();
+    }
 }
